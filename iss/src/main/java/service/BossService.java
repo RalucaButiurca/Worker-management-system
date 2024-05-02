@@ -8,8 +8,8 @@ import java.util.List;
 public class BossService {
     private BossRepository bossRepository;
 
-    public BossService() {
-        this.bossRepository = new BossRepository();
+    public BossService(BossRepository bossRepository) {
+        this.bossRepository = bossRepository;
     }
 
     public void addBoss(Boss Boss) {

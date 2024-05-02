@@ -14,6 +14,8 @@ import service.EmployeeService;
 import service.ServerService;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignIn {
     @FXML
@@ -44,7 +46,7 @@ public class SignIn {
                         e.printStackTrace();
                     }
                 } else {
-                    errorLabel.setText("Incorrect password for worker account.");
+                    errorLabel.setText("Incorrect email or password for worker account.");
                     return;
                 }
             } else if (isBossEmail(email)) {
@@ -58,7 +60,7 @@ public class SignIn {
                         e.printStackTrace();
                     }
                 } else {
-                    errorLabel.setText("Incorrect password for boss account.");
+                    errorLabel.setText("Incorrect email or password for boss account.");
                     return;
                 }
             } else {
@@ -69,22 +71,21 @@ public class SignIn {
             errorLabel.setText("Invalid email format.");
             return;
         }
-        // If execution reaches here, it means an unexpected error occurred
         errorLabel.setText("An unexpected error occurred. Please try again later.");
     }
 
     private boolean isValidEmail(String email) {
-        // Add your email validation logic here
-        return true;
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 
     private boolean isWorkerEmail(String email) {
-        // Add your logic to check if the email belongs to a worker
         return email.endsWith("@company.com");
     }
 
     private boolean isBossEmail(String email) {
-        // Add your logic to check if the email belongs to a boss
         return email.endsWith("@boss.com");
     }
 

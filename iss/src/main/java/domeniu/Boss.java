@@ -8,8 +8,11 @@ public class Boss extends Entity {
     private String password;
     private String name;
 
-    public Boss(int id, String email, String password, String name) {
+    public Boss(int id, String name, String password) {
         super(id);
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     public String getEmail() {

@@ -45,11 +45,11 @@ public class ServerService {
     }
 
     public EmployeeService getEmployeeService() {
-        return new EmployeeService();
+        return new EmployeeService(employeeRepository);
     }
 
     public BossService getBossService() {
-        return new BossService();
+        return new BossService(bossRepository);
     }
 
 }

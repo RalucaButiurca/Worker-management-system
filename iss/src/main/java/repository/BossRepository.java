@@ -1,9 +1,13 @@
 package repository;
 
 import domeniu.Boss;
+import domeniu.Employee;
 import utils.JDBCUtils;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -13,7 +17,6 @@ public class BossRepository {
     private JDBCUtils dbUtils;
 
     public BossRepository(Properties props) {
-
         dbUtils = new JDBCUtils(props);
     }
     private List<Boss> bosses;
@@ -26,7 +29,19 @@ public class BossRepository {
 
         Connection con = dbUtils.getConnection();
 
-        bosses.add(Boss);
+        try(PreparedStatement preSmt = con.prepareStatement("insert into boss " +
+                "(id, email, name) values (?, ?, ?)")) {
+            preSmt.setInt(1, Boss.getId());
+            preSmt.setString(2, Boss.getEmail());
+            preSmt.setString(3, Boss.getName());
+
+            int result = preSmt.executeUpdate();
+
+        }
+        catch (SQLException ex) {
+            System.err.println("Error db" + ex);
+        }
+
     }
 
     public Boss findBossById(int id) {
@@ -45,12 +60,27 @@ public class BossRepository {
 
         Connection con = dbUtils.getConnection();
 
-        for (Boss boss : bosses) {
-            if (boss.getEmail().equals(email) && boss.getPassword().equals(password)) {
-                return boss;
+        Boss boss = null;
+
+        try (PreparedStatement preSmt = con.prepareStatement("SELECT * FROM boss WHERE email = ? AND password = ?")) {
+            preSmt.setString(1, email);
+            preSmt.setString(2, password);
+
+            try (ResultSet rs = preSmt.executeQuery()) {
+                if (rs.next()) {
+                    Integer id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    String passwordBoss = rs.getString("password");
+
+                    // Construct the Employee object
+                    boss = new Boss(id, name, passwordBoss);
+                }
             }
+        } catch (SQLException ex) {
+            System.err.println("Error db" + ex);
         }
-        return null;
+
+        return boss;
     }
 
     public void updateBoss(Boss Boss) {

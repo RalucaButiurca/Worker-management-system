@@ -12,7 +12,7 @@ public class Employee extends Entity {
     private String name;
     private Boolean present;
     private List<Task> tasks;
-    public Employee(int id, String name) {
+    public Employee(int id, String name, String password) {
         super(id);
         this.email = email;
         this.password = password;
@@ -20,9 +20,6 @@ public class Employee extends Entity {
         this.present = false;
         this.tasks = new ArrayList<>();
     }
-
-
-
 
     public String getEmail() {
         return email;

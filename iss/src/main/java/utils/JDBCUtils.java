@@ -18,7 +18,7 @@ public class JDBCUtils {
 
         String url = jdbcProps.getProperty("jdbc.url");
         String user = jdbcProps.getProperty("jdbc.user");
-        String pass = jdbcProps.getProperty("jdbc.pass");
+        String pass = jdbcProps.getProperty("jdbc.password");
 
         Connection con = null;
 

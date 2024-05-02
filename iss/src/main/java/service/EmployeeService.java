@@ -8,8 +8,8 @@ import java.util.List;
 public class EmployeeService {
     private EmployeeRepository employeeRepository;
 
-    public EmployeeService() {
-        this.employeeRepository = new EmployeeRepository();
+    public EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
     public void addEmployee(Employee Employee) {
