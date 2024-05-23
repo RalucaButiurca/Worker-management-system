@@ -11,13 +11,16 @@ public class Employee extends Entity {
     private String password;
     private String name;
     private Boolean present;
+    private String signintime;
+
     private List<Task> tasks;
-    public Employee(int id, String name, String password) {
+    public Employee(int id, String email, String password, String name, Boolean present, String signintime ) {
         super(id);
         this.email = email;
         this.password = password;
         this.name = name;
         this.present = false;
+        this.signintime = signintime;
         this.tasks = new ArrayList<>();
     }
 
@@ -53,6 +56,14 @@ public class Employee extends Entity {
         this.present = present;
     }
 
+    public String getSignintime() {
+        return signintime;
+    }
+
+    public void setSignintime(String signintime) {
+        this.signintime = signintime;
+    }
+
     public List<Task> getTasks() {
         return tasks;
     }
@@ -61,8 +72,8 @@ public class Employee extends Entity {
         tasks.add(task);
     }
 
-    @Override
-    public String toString() {
-        return "name='" + name + '\'' + ", present=" + present + ", tasks=" + tasks;
-    }
+//    @Override
+//    public String toString() {
+//        return "name='" + name + '\'' + ", present=" + present + ", tasks=" + tasks;
+//    }
 }

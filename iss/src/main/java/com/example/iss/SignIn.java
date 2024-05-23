@@ -1,6 +1,7 @@
 package com.example.iss;
 
 import domeniu.Boss;
+import domeniu.CurrentUser;
 import domeniu.Employee;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -40,6 +41,8 @@ public class SignIn {
                 Employee employee = employeeService.findEmployee(email, password);
                 if (employee != null && employee.getPassword().equals(password)) {
                     try {
+                        CurrentUser currentUser = CurrentUser.getInstance();
+                        currentUser.setEmail(employee.getEmail());
                         loadWorkerView();
                         return;
                     } catch (IOException e) {

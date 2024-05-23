@@ -33,7 +33,12 @@ public class EmployeeService {
     }
 
     public List<Employee> getAngajati() {
+
         return employeeRepository.getEmployees();
     }
 
+    public Employee addSignintime(String signintime) {
+        employeeRepository.addSingintime(signintime);
+        return null;
+    }
 }

@@ -29,10 +29,11 @@ public class EmployeeRepository {
         Connection con = dbUtils.getConnection();
 
         try(PreparedStatement preSmt = con.prepareStatement("insert into employee " +
-                "(id, email, name) values (?, ?, ?)")) {
+                "(id, email, password, name) values (?, ?, ?, ?)")) {
             preSmt.setInt(1, Employee.getId());
             preSmt.setString(2, Employee.getEmail());
-            preSmt.setString(3, Employee.getName());
+            preSmt.setString(3, Employee.getPassword());
+            preSmt.setString(4, Employee.getName());
 
             int result = preSmt.executeUpdate();
 
@@ -71,9 +72,10 @@ public class EmployeeRepository {
                     Integer id = rs.getInt("id");
                     String name = rs.getString("name");
                     String passwordEmployee = rs.getString("password");
+                    Boolean present = rs.getBoolean("present");
+                    String signintime = rs.getString("signintime");
 
-                    // Construct the Employee object
-                    employee = new Employee(id, name, passwordEmployee);
+                    employee = new Employee(id, email, passwordEmployee, name, present, signintime);
                 }
             }
         } catch (SQLException ex) {
@@ -103,5 +105,24 @@ public class EmployeeRepository {
     }
     public List<Employee> getEmployees() {
         return employees;
+    }
+
+    public void addSingintime(String signintime) {
+        Connection con = dbUtils.getConnection();
+
+        try(PreparedStatement preSmt = con.prepareStatement("insert into employee " +
+                "(signintime) values (?)")) {
+            preSmt.setString(1, signintime);
+
+            int result = preSmt.executeUpdate();
+            if (result > 0) {
+                System.out.println("Sign-in time added successfully.");
+            } else {
+                System.out.println("Failed to add sign-in time.");
+            }
+        }
+        catch (SQLException ex) {
+            System.err.println("Error db" + ex);
+        }
     }
 }

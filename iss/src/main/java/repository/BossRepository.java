@@ -73,7 +73,7 @@ public class BossRepository {
                     String passwordBoss = rs.getString("password");
 
                     // Construct the Employee object
-                    boss = new Boss(id, name, passwordBoss);
+                    boss = new Boss(id, email, name, passwordBoss);
                 }
             }
         } catch (SQLException ex) {
