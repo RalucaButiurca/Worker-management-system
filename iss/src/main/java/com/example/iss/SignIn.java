@@ -1,5 +1,6 @@
 package com.example.iss;
 
+import HashUtil.HashUtil;
 import domeniu.Boss;
 import domeniu.CurrentUser;
 import domeniu.Employee;
@@ -38,11 +39,12 @@ public class SignIn {
         if (isValidEmail(email)) {
             if (isWorkerEmail(email)) {
                 EmployeeService employeeService = serverService.getEmployeeService();
-                Employee employee = employeeService.findEmployee(email, password);
-                if (employee != null && employee.getPassword().equals(password)) {
+                if (employeeService.validateEmployee(email, password)) {
                     try {
                         CurrentUser currentUser = CurrentUser.getInstance();
-                        currentUser.setEmail(employee.getEmail());
+                        currentUser.setEmail(email);
+                        String hashedPassword = HashUtil.hashPassword(password);
+                        currentUser.setId(employeeService.findEmployee(email, hashedPassword).getId());
                         loadWorkerView();
                         return;
                     } catch (IOException e) {
@@ -54,8 +56,7 @@ public class SignIn {
                 }
             } else if (isBossEmail(email)) {
                 BossService bossService = serverService.getBossService();
-                Boss boss = bossService.findBoss(email, password);
-                if (boss != null && boss.getPassword().equals(password)) {
+                if (bossService.validateBoss(email, password)) {
                     try {
                         loadBossView();
                         return;

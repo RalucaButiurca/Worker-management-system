@@ -5,6 +5,8 @@ import repository.EmployeeRepository;
 
 import java.util.List;
 
+import HashUtil.HashUtil;
+
 public class EmployeeService {
     private EmployeeRepository employeeRepository;
 
@@ -24,6 +26,16 @@ public class EmployeeService {
         return employeeRepository.findEmployee(email, password);
     }
 
+    public boolean validateEmployee(String email, String password) {
+        String hashedPassword = HashUtil.hashPassword(password);
+        Employee employee = findEmployee(email, hashedPassword);
+        if (employee != null) {
+            return employee.getPassword().equals(hashedPassword);
+//            return true;
+        }
+        return false;
+    }
+
     public void updateEmployee(Employee Employee) {
         employeeRepository.updateEmployee(Employee);
     }
@@ -37,8 +49,8 @@ public class EmployeeService {
         return employeeRepository.getEmployees();
     }
 
-    public Employee addSignintime(String signintime) {
-        employeeRepository.addSingintime(signintime);
+    public Employee addSignintime(String signintime, Integer currentUserId) {
+        employeeRepository.addSignInTime(signintime, currentUserId);
         return null;
     }
 }

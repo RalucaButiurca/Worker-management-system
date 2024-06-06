@@ -5,6 +5,8 @@ import domeniu.Employee;
 import repository.BossRepository;
 import java.util.List;
 
+import HashUtil.HashUtil;
+
 public class BossService {
     private BossRepository bossRepository;
 
@@ -23,7 +25,15 @@ public class BossService {
     public Boss findBoss(String email, String password) {
         return bossRepository.findBoss(email, password);
     }
-
+    public boolean validateBoss(String email, String password) {
+        String hashedPassword = HashUtil.hashPassword(password);
+        Boss boss = findBoss(email, hashedPassword);
+        if (boss != null) {
+//            String hashedPassword = HashUtil.hashPassword(password);
+            return boss.getPassword().equals(hashedPassword);
+        }
+        return false;
+    }
     public void updateBoss(Boss Boss) {
         bossRepository.updateBoss(Boss);
     }

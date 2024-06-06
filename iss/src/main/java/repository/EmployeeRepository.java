@@ -107,12 +107,31 @@ public class EmployeeRepository {
         return employees;
     }
 
-    public void addSingintime(String signintime) {
+//    public void addSingintime(String signintime, Integer currentUserId) {
+//        Connection con = dbUtils.getConnection();
+//
+//        try(PreparedStatement preSmt = con.prepareStatement("insert into employee " +
+//                "(signintime) values (?)")) {
+//            preSmt.setString(1, signintime);
+//
+//            int result = preSmt.executeUpdate();
+//            if (result > 0) {
+//                System.out.println("Sign-in time added successfully.");
+//            } else {
+//                System.out.println("Failed to add sign-in time.");
+//            }
+//        }
+//        catch (SQLException ex) {
+//            System.err.println("Error db" + ex);
+//        }
+//    }
+
+    public void addSignInTime(String signintime, Integer currentUserId) {
         Connection con = dbUtils.getConnection();
 
-        try(PreparedStatement preSmt = con.prepareStatement("insert into employee " +
-                "(signintime) values (?)")) {
+        try (PreparedStatement preSmt = con.prepareStatement("UPDATE employee SET signintime = ? WHERE id = ?")) {
             preSmt.setString(1, signintime);
+            preSmt.setInt(2, currentUserId);
 
             int result = preSmt.executeUpdate();
             if (result > 0) {
@@ -120,9 +139,9 @@ public class EmployeeRepository {
             } else {
                 System.out.println("Failed to add sign-in time.");
             }
-        }
-        catch (SQLException ex) {
-            System.err.println("Error db" + ex);
+        } catch (SQLException ex) {
+            System.err.println("Error db: " + ex);
         }
     }
+
 }

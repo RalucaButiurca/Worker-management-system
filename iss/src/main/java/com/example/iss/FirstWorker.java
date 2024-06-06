@@ -32,7 +32,7 @@ public class FirstWorker {
 
         if (isValidTimeString(signintime)) {
             EmployeeService employeeService = serverService.getEmployeeService();
-            Employee employee = employeeService.addSignintime(signintime);
+            Employee employee = employeeService.addSignintime(signintime, CurrentUser.getInstance().getId());
             if (employee != null && employee.getSignintime() != null) {
                 try {
                     loadWorker2View();
@@ -45,6 +45,7 @@ public class FirstWorker {
             errorLabel.setText("Incorrect time.");
             return;
         }
+        return;
     }
 
     private boolean isValidTimeString(String str) {
