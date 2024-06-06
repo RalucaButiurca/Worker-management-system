@@ -358,7 +358,7 @@
 													"top": 660,
 													"width": 128.72119140625,
 													"height": 13,
-													"text": "ProgramatorWindow"
+													"text": "WorkerWindow"
 												},
 												{
 													"_type": "LabelView",
@@ -5709,7 +5709,7 @@
 											"height": 13,
 											"alpha": -2.8593352048579996,
 											"distance": 104.12012293500234,
-											"text": "7 : username,password=LoginInfo()"
+											"text": "7 : email,password=LoginInfo()"
 										},
 										{
 											"_type": "NodeLabelView",
@@ -6029,7 +6029,7 @@
 											"height": 13,
 											"alpha": -2.9321130737945618,
 											"distance": 129.83836104942176,
-											"text": "8 : LoginButtonClicked(username,password)"
+											"text": "8 : LoginButtonClicked(email,password)"
 										},
 										{
 											"_type": "NodeLabelView",
@@ -6349,7 +6349,7 @@
 											"height": 13,
 											"alpha": -0.2704360996636988,
 											"distance": 104.80935072788114,
-											"text": "9 : user = login(username,password)"
+											"text": "9 : user = login(email,password)"
 										},
 										{
 											"_type": "NodeLabelView",
@@ -6669,7 +6669,7 @@
 											"height": 13,
 											"alpha": -0.12891076381440228,
 											"distance": 163.35544068074378,
-											"text": "10 : findByUsernameAndPassword(username,parola)"
+											"text": "10 : findByEmail(email)"
 										},
 										{
 											"_type": "NodeLabelView",
@@ -7629,7 +7629,7 @@
 											"height": 13,
 											"alpha": -1.92378648291447,
 											"distance": 40.496913462633174,
-											"text": "13 : ProgramatorWindow(user,s)"
+											"text": "13 : WorkerWindow(user,s)"
 										},
 										{
 											"_type": "NodeLabelView",
@@ -8443,7 +8443,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPDppXl6UGYS4="
 							},
-							"name": "username,password=LoginInfo()",
+							"name": "email,password=LoginInfo()",
 							"source": {
 								"$ref": "AAAAAAGPDp7hAKXMUR4="
 							},
@@ -8470,7 +8470,7 @@
 							"connector": {
 								"$ref": "AAAAAAGPDwiw+w7shzI="
 							},
-							"arguments": "username,password"
+							"arguments": "email,password"
 						},
 						{
 							"_type": "UMLMessage",
@@ -8488,7 +8488,7 @@
 							"connector": {
 								"$ref": "AAAAAAGPDwmAakgjX4k="
 							},
-							"arguments": "username,password",
+							"arguments": "email,password",
 							"assignmentTarget": "user"
 						},
 						{
@@ -8497,7 +8497,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPDppXl6UGYS4="
 							},
-							"name": "findByUsernameAndPassword",
+							"name": "findByEmail",
 							"source": {
 								"$ref": "AAAAAAGPDp2mj6VtTIk="
 							},
@@ -8507,7 +8507,7 @@
 							"connector": {
 								"$ref": "AAAAAAGPDwtOD9+PAbQ="
 							},
-							"arguments": "username,parola"
+							"arguments": "email"
 						},
 						{
 							"_type": "UMLMessage",
@@ -8550,7 +8550,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPDppXl6UGYS4="
 							},
-							"name": "ProgramatorWindow",
+							"name": "WorkerWindow",
 							"source": {
 								"$ref": "AAAAAAGPDpw0sKUzWLU="
 							},
@@ -8631,7 +8631,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPDppXl6UGYS4="
 							},
-							"name": "ProgramatorWindow",
+							"name": "WorkerWindow",
 							"stereotype": "boundary",
 							"represent": {
 								"$ref": "AAAAAAGPDpyz1aVPN+k="
@@ -8956,7 +8956,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -9128,7 +9129,8 @@
 								}
 							}
 						}
-					]
+					],
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",

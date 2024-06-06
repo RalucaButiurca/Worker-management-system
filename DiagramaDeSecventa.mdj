@@ -1060,7 +1060,7 @@
 												"$ref": "AAAAAAGPBbmlO5P0kNI="
 											},
 											"edgePosition": 1,
-											"text": "2 : ValidatorUtilizator()"
+											"text": "2 : ValidatorAngajat()"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1173,7 +1173,7 @@
 												"$ref": "AAAAAAGPBbn+CZQK7t8="
 											},
 											"edgePosition": 1,
-											"text": "3 : UtilizatorRepository()"
+											"text": "3 : AngajatRepository()"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1623,7 +1623,7 @@
 												"$ref": "AAAAAAGPBcKIUZT4hdM="
 											},
 											"edgePosition": 1,
-											"text": "7 : username,password=LoginInfo()"
+											"text": "7 : email,password=LoginInfo()"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1734,7 +1734,7 @@
 												"$ref": "AAAAAAGPBcNB65UQcyM="
 											},
 											"edgePosition": 1,
-											"text": "8 : LoginButtonClicked(username,password))"
+											"text": "8 : LoginButtonClicked(email,password))"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1845,7 +1845,7 @@
 												"$ref": "AAAAAAGPBcSgaZUxF20="
 											},
 											"edgePosition": 1,
-											"text": "9 : user=login(username,password)"
+											"text": "9 : user=login(email,password)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -1956,7 +1956,7 @@
 												"$ref": "AAAAAAGPBcXNf5VPSyo="
 											},
 											"edgePosition": 1,
-											"text": "10 : findByUsernameAndPassword(username,parola)"
+											"text": "10 : findByEmail(email)"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -2407,7 +2407,7 @@
 												"$ref": "AAAAAAGPBdcc4ZXES6w="
 											},
 											"edgePosition": 1,
-											"text": "13 : ProgramatorWindow()"
+											"text": "13 : AngajatWindow()"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -2736,7 +2736,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPBZbibZGBpm8="
 							},
-							"name": "ValidatorUtilizator()",
+							"name": "ValidatorAngajat()",
 							"source": {
 								"$ref": "AAAAAAGPBZfxmJG2S3g="
 							},
@@ -2751,7 +2751,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPBZbibZGBpm8="
 							},
-							"name": "UtilizatorRepository()",
+							"name": "AngajatRepository()",
 							"source": {
 								"$ref": "AAAAAAGPBZfxmJG2S3g="
 							},
@@ -2810,7 +2810,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPBZbibZGBpm8="
 							},
-							"name": "username,password=LoginInfo()",
+							"name": "email,password=LoginInfo()",
 							"source": {
 								"$ref": "AAAAAAGPBZdQnJGWCBY="
 							},
@@ -2824,7 +2824,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPBZbibZGBpm8="
 							},
-							"name": "LoginButtonClicked(username,password))",
+							"name": "LoginButtonClicked(email,password))",
 							"source": {
 								"$ref": "AAAAAAGPBZdQnJGWCBY="
 							},
@@ -2838,7 +2838,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPBZbibZGBpm8="
 							},
-							"name": "user=login(username,password)",
+							"name": "user=login(email,password)",
 							"source": {
 								"$ref": "AAAAAAGPBZpqUpICshw="
 							},
@@ -2852,7 +2852,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPBZbibZGBpm8="
 							},
-							"name": "findByUsernameAndPassword(username,parola)",
+							"name": "findByEmail(email)",
 							"source": {
 								"$ref": "AAAAAAGPBa7YmZMdyLk="
 							},
@@ -2894,7 +2894,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGPBZbibZGBpm8="
 							},
-							"name": "ProgramatorWindow()",
+							"name": "AngajatWindow()",
 							"source": {
 								"$ref": "AAAAAAGPBZpqUpICshw="
 							},
